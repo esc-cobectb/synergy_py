@@ -1,0 +1,6 @@
+print("Введите число (целая и дробная части должны быть разделены точкой):")
+num = float(input())
+print("Введите точность округления:")
+accuracy = int(input())
+result = round(num, accuracy)
+print("Результат:", result)
