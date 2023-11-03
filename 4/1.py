@@ -1,0 +1,6 @@
+print("Введите строку из нескольких слов:")
+string = input()
+print(string)
+array = string.split()
+array.reverse()
+print(array)
