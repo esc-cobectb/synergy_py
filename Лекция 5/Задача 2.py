@@ -1,9 +1,5 @@
 n = int(input())
 s = input()
 delta = n - len(s)
-k = delta // 2
-p = delta % 2
-result = s[0] * k + s + s[-1] * k
-if(p > 0):
-	result += '.'
+result = s[0] * (delta // 2) + s + s[-1] * (delta // 2) + '.' * (delta % 2)
 print(result)
