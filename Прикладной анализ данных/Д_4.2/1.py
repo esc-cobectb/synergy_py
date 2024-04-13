@@ -52,17 +52,19 @@ plt.grid(True)
 fig = plt.figure()
 fig.canvas.manager.set_window_title('Ценовые диапазоны')
 plt.hist(df['Unit price'], edgecolor = 'white', bins = 25)
+plt.xlabel('Стоимость товара')
+plt.ylabel('Количество продаж')
 # Судя по гистограмме на 25 диапазонов, самыми популярными являются от 71.2 до 74.6 доллара и от 96.6 до 100 долларов
 
 # -------------------------------------------------------------------------------
 # Тут я попытался выяснить какой вообще разброс цен по категориям и в какой категории берут товары в среднем подороже
-# frame = df.groupby('Product line')['Unit price'].apply(list)
-# fig = plt.figure()
-# fig.canvas.manager.set_window_title('Распределение цен по категориям')
-# plt.boxplot(frame)
-# ticks = list(range(1, len(frame)+1))
-# tickNames = frame.index.values
-# plt.xticks(ticks, tickNames, rotation=90)
+frame = df.groupby('Product line')['Unit price'].apply(list)
+fig = plt.figure()
+fig.canvas.manager.set_window_title('Распределение цен по категориям')
+plt.boxplot(frame)
+ticks = list(range(1, len(frame)+1))
+tickNames = frame.index.values
+plt.xticks(ticks, tickNames, rotation=90)
 # Оказалось, что во всех категориях разброс цен плюс-минус одинаковый, но в среднем подороже товары берут в категории Sport and Travel
 # Но не так, чтобы на этом можно было сделать какой-то полезный вывод
 # -------------------------------------------------------------------------------
